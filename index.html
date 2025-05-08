@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Websikkerhed Scenario</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="popup-overlay" id="popupOverlay"></div>
+
+
+  <header>
+    <div class="logo">CYBERSIKKER</div>
+  </header>
+
+<div class="container">
+   <div class="progress-bar">
+     <div id="progress" class="fill"></div>
+   </div>
+
+
+ <!-- POPUPS -->
+  <div id="popupbesked" class="popup">
+    <div class="sender">
+    <img class="avatar" src="images/pige.JPG" alt="sender avatar - standin">
+    <span class="name">Emma Bjergstrup</span>
+   </div> 
+   <div class="message"></div>
+   <div class="choices"></div>
+ </div>
+
+ <div id="malwarePopup" class="popup">
+   <div class="sender">System</div>
+   <div class="message"></div>
+   <div class="choices"></div>
+ </div>
+
+ <div id="popupdanger" class="popup">
+   <div class="sender">Martin</div>
+   <div class="message"></div>
+   <div class="choices"></div>
+ </div>
+
+ <div id="ignorer" class="popup">
+  <img class="avatar" src="images/pige.JPG" alt="sender avatar - standin">
+   <div class="sender">Emma Bjergstrup</div>
+   <div class="message"></div>
+   <div class="choices"></div>
+ </div>
+
+ <div id="emailReply" class="popup">
+  <div class="sender">
+  <img class="avatar" src="images/pige.JPG" alt="sender avatar">
+  <span class="name">Emma Bjergstrup</span>
+ </div> 
+ <div class="message"></div>
+ <div class="choices"></div>
+</div>
+
+ <div id="wifi" class="popup">
+   <div class="sender">System</div>
+   <div class="message"> FREMMED NETVÆRK OPSPORET</div>
+   <div class="choices"></div>
+ </div>
+
+<main>
+ <!-- INDHOLD -->
+ <!-- FEED LAYOUT -->
+   <div class="layout" id="feed">
+  
+    <!-- Post 1 -->
+    <div class="post-container">
+      <div class="post-header">
+        <div class="post-img-container">
+          <img src="images/dreng.JPG" alt="Profilbillede- standin" class="post-header-img">
+        </div>
+        <span>Jonas Møller</span>
+      </div>
+
+  <div id="media-container" class="media-container"></div>
+
+    <div id="media-container" class="image-container">
+      <!-- Billedet ændres via JS -->
+    </div>
+  
+   
+  <div id="scenario" class="scenario">
+    <!-- Indhold opdateres med JS -->
+  </div>
+    
+  <div id="choices" class="choices">
+    <!-- Valgmuligheder opdateres med JS -->
+  </div> 
+
+ <!-- Start igen knap -->
+  <button id="restartButton" style="display: none;" onclick="restartGame()">Start igen</button>
+      
+  <div class="post-actions">
+        <button class="like-btn">
+          ❤️ <span class="like-count">128</span>
+        </button>
+        <button class="comment-btn">
+          💬 <span class="comment-count">24</span>
+        </button>
+      </div>
+      <div class="comments">
+        <div class="comment-line">
+          <img class="comment-avatar" src="images/spejder.JPG" alt="profilbillede-standin">
+          <div class="text-bubble">
+            <span class="comment-sender">Frederik Fransen</span>
+            <p class="comment-txt">Glad for det ikke er mig!</p>
+          </div>
+        </div>
+  
+        <div class="comment-line">
+          <img class="comment-avatar" src="images/pige.JPG" alt="profilbillede">
+          <div class="text-bubble">
+            <span class="comment-sender">Marie Nørlev</span>
+            <p class="comment-txt">Fuck det kunne være fedt!</p>
+          </div>
+        </div>
+      </div> 
+  
+    </div>
+  </div> 
+
+
+    <!---Post 2-->
+      <div class="post-container">
+      <div class="post-header">
+        <div class="post-img-container">
+          <img src="images/rutsc.JPG" alt="Profilbillede" class="post-header-img">
+        </div>
+        <span> Cronically online</span>
+      </div>
+    
+      <p class="post-content-txt">
+        THE GOAT! <br> Kommenter GOAT uden at blive afbrudt og modtag en DM med tips og tricks!
+      </p>
+    
+      <img class="post-img" src="images/rutsc.JPG" alt="photo-standin">
+    
+      <div class="post-actions">
+        <button class="like-btn">
+          ❤️ <span class="like-count">128</span>
+        </button>
+        <button class="comment-btn">
+          💬 <span class="comment-count">249</span>
+        </button>
+      </div>
+    
+      <!-- kommentar-container -->
+      <div class="comments">
+        <div class="comment-line">
+          <img class="comment-avatar" src="images/dreng.JPG" alt="profilbillede-standin">
+          <div class="text-bubble">
+            <span class="comment-sender">Morten Madsen</span>
+            <span class="comment-txt">O!</span>
+          </div>
+        </div>
+    
+        <div class="comment-line">
+          <img class="comment-avatar" src="images/spejder.JPG" alt="profilbillede-standin">
+          <div class="text-bubble">
+            <span class="comment-sender">Joakim Birgersen</span>
+            <span class="comment-txt">G</span>
+          </div>
+        </div>
+
+        <div class="comment-line">
+          <img class="comment-avatar" src="images/dreng.JPG" alt="profilbillede-standin">
+          <div class="text-bubble">
+            <span class="comment-sender">Morten Madsen</span>
+            <span class="comment-txt">A</span>
+          </div>
+        </div>
+
+        <div class="comment-line">
+          <img class="comment-avatar" src="images/spejder.JPG" alt="profilbillede-standin">
+          <div class="text-bubble">
+            <span class="comment-sender">Joakim Birgersen</span>
+            <span class="comment-txt">O</span>
+          </div>
+        </div>
+
+        <div class="comment-line">
+          <img class="comment-avatar" src="images/pige.JPG" alt="profilbillede-standin">
+          <div class="text-bubble">
+            <span class="comment-sender">Maia Sørensen</span>
+            <span class="comment-txt">T!</span>
+          </div>
+        </div>
+
+      </div> <!-- /.comments -->
+    </div> <!-- /.post-container -->
+    
+
+     
+    <!-- post 3 -->
+    <div class="post-container">
+      <div class="post-header">
+        <div class="post-img-container">
+          <img src="images/pige.JPG" alt="profilbillede-standin" class="post-header-img">
+        </div>
+        <span>Sophie Møller</span>
+      </div> 
+      <p class="post-content-txt"> Produktivitet på højeste plan </p>
+      <img class="post-img" src="images/produktivitet.JPG" alt="photo standin"> 
+      <div class="post-actions">
+        <button class="like-btn">
+          ❤️ <span class="like-count">6</span>
+        </button>
+        <button class="comment-btn">
+          💬 <span class="comment-count">3</span>
+        </button>
+      </div>
+<div class="comments">
+      <div class="comment-line">
+        <img class="comment-avatar" src="images/pige.JPG" alt="profilbillede">
+        <div class="text-bubble">
+      <span class="comment-sender"> Emilia Bjergstrup</span>
+      <span class="comment-txt">i er ogs sat til at lave det?</span>
+    </div>
+  </div>
+
+          <div class="comment-line">
+            <img class="comment-avatar" src="images/spejder.JPG" alt="profilbillede-standin">
+            <div class="text-bubble">
+          <span class="comment-sender">Signe Mols</span>
+          <span class="comment-txt">Græder - forstår virkelig ikke hvorfor vi skal lære det :') </span>
+        </div>
+      </div>
+       
+
+          <div class="comment-line">
+            <img class="comment-avatar" src="images/dreng.JPG" alt="profilbillede-standin">
+            <div class="text-bubble">
+          <span class="comment-sender">Jens Leenstrup</span>
+          <span class="comment-txt"> I ved godt at i er opdaget ik? </span>
+        </div>
+      </div>
+</div>
+      </div>
+
+    <!-- Eksempelpost 4 -->
+    <div class="post-container">
+      <div class="post-header">
+        <div class="post-img-container">
+          <img src="images/pige.JPG" alt="profilbillede-standin" class="post-header-img">
+        </div>
+        <span>Marie Jørgensen</span>
+      </div> 
+      <p class="post-content-txt"> POV - du vil bare gerne sove men Gitte siger du skal være aktiv i undervisningen</p>
+      <img class="post-img" src="images/produktivitet.JPG" alt="photo">
+      <div class="post-actions">
+        <button class="like-btn">
+          ❤️ <span class="like-count">9</span>
+        </button>
+        <button class="comment-btn">
+          💬 <span class="comment-count">10</span>
+        </button>
+      </div>
+
+        <div class="comments">
+          <div class="comment-line">
+            <img class="comment-avatar" src="images/dreng.JPG" alt="profilbillede">
+            <div class="text-bubble">
+          <span class="comment-sender">Jens Leenstrup</span>
+          <span class="comment-txt">haha! I er så bustet! Gitte er på vej</span>
+        </div>
+      </div>
+
+          <div class="comment-line">
+            <img class="comment-avatar" src="images/pige.JPG" alt="profilbillede">
+            <div class="text-bubble">
+          <span class="comment-sender">Emilia Bjergstrup</span>
+          <span class="comment-txt"> haha</span>
+        </div>
+      </div>
+   
+      </div>
+  
+    </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

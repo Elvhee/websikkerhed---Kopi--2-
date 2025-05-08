@@ -1,0 +1,556 @@
+// Farvevariabler 
+$primary: #0F0F0F; 
+$secondary: #5DD62C;
+$danger: #ff1100; 
+$success: #32CD32; 
+$text: #0F0F0F;
+$scnd-text: #F8F8F8; 
+$background-color:#202020;
+$secondary-bck: #202020;
+$button-padding: 15px 25px;
+$font-size-large: 20px;
+$font-size-small: 14px;
+$button-radius: 12px;
+$font-family: 'Comic Sans MS', sans-serif;
+$font-family-sender: 'Arial', sans-serif; 
+$border: 1.5px solid rgba(0, 0, 0, 0.1);
+$border-radius: 15px;
+
+
+
+// Global styling for siden
+html, body {
+  height: 100%; 
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+  background: linear-gradient(to bottom, #0F0F0F, #5DD62C, #337418);
+  background-repeat: no-repeat;
+  background-attachment: fixed; // Sørger for at den fylder hele viewporten og ikke scroller med
+  background-size: cover;       // Dækker hele skærmen uden at gentage
+  color: $background-color;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 70%;
+  margin: auto;
+  background: $background-color;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+
+  @media (max-width: 767px) {
+    max-width: 100%;
+    margin: 0 10px;
+    padding: 0 10px;
+  }
+}
+
+.progress-bar {
+  background: #ffffff;
+  height: 3vh;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.fill {
+  background: $secondary;
+  width: 0%;
+  height: 100%;
+  transition: width 0.5s ease-in-out; // Glidende animation for ændring af width
+  border-radius: 8px;
+}
+
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-sizing: border-box;
+  background:$primary;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  
+
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+
+.feed {
+  max-width: 500px; // desktop standard
+  margin: 20px auto;
+  background-color: $primary;
+  border-radius: 12px;
+  padding: 0;
+  min-height: 100vh;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+
+  // For mobilvisning: Fyld hele bredden og centrer indhold
+  @media (max-width: 767px) {
+    max-width: 100%;
+    margin: 0 10px;
+    padding: 0 10px;
+  }
+
+  // Brug flexbox til at centrere post-container
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.post-container {
+  border-radius: 8px;
+  padding: 15px;
+  margin: 20px auto;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  width: 70%;
+  background-color: $primary;
+  align-items: center;
+  color: $scnd-text;
+
+  // For mobilvisning: Ændre bredden for at være lidt smallere og centrere
+  @media (max-width: 767px) {
+    width: 90%;  // Fyld næsten hele bredden på mobilen
+  }
+}
+
+.post-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: $background-color;
+ color: $scnd-text;
+}
+
+.post-img-container {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  text-align: left;
+
+  .post-header-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+span {
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.post-img {
+  width: 100%;
+  align-self: center;
+}
+.post-content-txt{
+  color: $scnd-text;
+  text-align: left;
+  font-family: $font-family;
+  margin: 1vh;
+}
+
+.post-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-top: 5vh;
+
+  button {
+    flex: 1;
+    background: $background-color;
+    border: none;
+    padding: 6px 12px;
+    border-radius: $border-radius;
+    cursor: pointer;
+
+    &:hover {
+      background: $secondary;
+    }
+  }
+}
+
+.comments {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+  border: $border;
+  border-radius: $border-radius;
+  padding: 3px;
+  background-color: rgba(0, 0, 0, 0.05);
+
+  .comment-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    border: $border;
+    border-radius: $border-radius;
+    background-color: #ffffff;
+
+    .comment-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .text-bubble {
+      border-radius: 18px;
+      padding: 8px 12px;
+      max-width: 100%;
+      color: $text;
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      align-items: baseline;
+      
+      // Desktop layout
+@media (min-width: 768px) {
+  .feed {
+    max-width: 500px;
+  }
+}
+
+      .comment-sender {
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+        font-family: $font-family;
+        font-weight: bold;
+      }
+
+      .comment-txt {
+        font-weight: normal;
+        color: $text;
+      }
+    }
+  }
+}
+
+// Mobil visning: 
+@media (max-width: 767px) {
+  .comment-line {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .text-bubble {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .comment-sender {
+      margin-bottom: 0.5vh; 
+      font-size: $font-size-small;
+    }
+
+    .comment-txt {
+      font-size: $font-size-small;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .post-container {
+    padding: 10px;
+  }
+}
+
+.image-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.scenario {
+  font-size: $font-size-large;
+  margin-bottom: 2rem;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;  // Sørger for at knapperne er centreret
+}
+
+// Knap klik animationer og effekter
+button {
+  padding: $button-padding;
+  border: none;
+  border-radius: $button-radius;
+  font-size: $font-size-large;
+  cursor: pointer;
+  background-color: $secondary; 
+  color: $scnd-text;
+  font-weight: bold;
+  transition: 0.3s ease;
+  width: 100%; /* Knapperne fylder hele bredden på mobilen */
+  
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.05); /* Knapperne vokser lidt ved hover */
+    background-color: $danger;
+  }
+
+  &:active {
+    transform: scale(0.95); /* Knappen skrumper lidt når man klikker på den */
+    animation: clickEffect 0.2s; /* Animering ved klik */
+  }
+
+  &.correct {
+    background-color: $success; /* Grøn, når valget er korrekt */
+    box-shadow: 0 0 15px 5px rgba(50, 205, 50, 0.5); /* Grønt skær omkring knappen */
+    animation: pulseGreen 0.8s infinite; /* Pulsereffekt for succes */
+  }
+
+  &.incorrect {
+    background-color: $danger; /* Rød, når valget er forkert */
+    box-shadow: 0 0 15px 5px rgba(255, 69, 0, 0.7); /* Rødt skær omkring knappen */
+    animation: shake 0.5s; /* Rystelseffekt for forkert valg */
+  }
+}
+
+// Klik animation: Knappen hopper op og ned
+@keyframes clickEffect {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* Hoppende effekt, 5px op */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+// Pulsereffekt for grøn (korrekt valg)
+@keyframes pulseGreen {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+// Rystelseffekt for rød (forkert valg)
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+// Styling for pop-up besked
+.popup {
+  position: fixed;
+    background-color: $primary;
+    color: $scnd-text; 
+    border: 0.5px solid $secondary;
+    border-width: 1vh;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    padding: 12px 16px;
+    width: 90%;
+    max-width: 340px;
+    font-family: $font-family;
+    font-size: 14px;
+    line-height: 1.4;
+    color: $scnd-text;
+    display: none;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease-in-out;
+}
+
+
+.popup .sender {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: $text; 
+  margin-bottom: 4px;
+  font-size: 15px;
+  color: $secondary;
+
+ 
+}
+ .avatar {
+    width: 32px; /* Størrelse på avatar-ikonet */
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 10px; /* Plads til venstre for afsenderens navn */
+    object-fit: cover;
+  }
+
+// Selve beskedens tekst
+.popup .message {
+  font-family: $font-family;
+  font-size: $font-size-small;
+  color: $scnd-text;
+}
+
+// Pop-up billede container – responsiv kontrol
+#popup-image-container {
+  text-align: center;
+  margin-bottom: 1rem;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Desktop placering: popup nederst til højre
+@media (min-width: 768px) {
+  .popup.show {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+    transform: none;
+    display: block;
+    opacity: 1;
+  }
+}
+
+// Mobil placering: popup som fane i toppen og uden billede
+@media (max-width: 767px) {
+  .popup.show {
+    top: 10px;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translateX(-50%);
+    display: block;
+    opacity: 1;
+  }
+
+  #popup-image-container {
+    display: none;
+  }
+}
+
+// Styling for knapperne i pop-uppen
+.popup .choices {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.popup button {
+  background-color: $secondary;
+  color: $text;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 18px;
+  font-size: $font-size-small;
+  font-family: $font-family;
+  border: none;
+  transition: background-color 0.2s ease;
+
+
+  &:hover {
+    background-color: $danger;
+    opacity: 0.8;
+  }
+}
+
+// Popup overlay baggrund
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); // Halvgennemsigtig sort
+  z-index: 999; // Lige under popup (popup har 1000)
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.popup-overlay.show {
+  display: block;
+  opacity: 1;
+}
+
+
+
+#choices button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+footer {
+  width: 100%;
+  margin: 0;
+  padding: 1rem;
+  background-color: #222;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+}
